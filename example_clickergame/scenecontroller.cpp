@@ -19,7 +19,7 @@ void SceneController::moveSprites() {
 }
 
 void SceneController::drawScene() {
-    for (auto sprite : spriteManager.sprites)
+    for (const auto &sprite : spriteManager.sprites)
         DrawTextureV(sprite.texture, sprite.pos, WHITE);
 }
 
