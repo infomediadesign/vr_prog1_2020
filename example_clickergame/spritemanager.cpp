@@ -20,6 +20,5 @@ Vector2 SpriteManager::getRandomPosition() {
 }
 
 void SpriteManager::addSprite() {
-    Sprite sprite = Sprite(getRandomPosition(), getRandomTexture());
-    sprites.push_back(sprite);
+    sprites.emplace_back(getRandomPosition(), getRandomTexture());
 }
