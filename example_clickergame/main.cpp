@@ -9,7 +9,7 @@ constexpr char *GAME_NAME = (char *) "Fruit Clicker";
 constexpr int GAME_FPS = 60;
 constexpr int SCREEN_WIDTH = 800;
 constexpr int SCREEN_HEIGHT = 450;
-constexpr int INITIAL_SPRITE_NUMBER = 3;
+constexpr int INITIAL_SPRITE_NUMBER = 5;
 
 int main() {
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME);
