@@ -12,6 +12,8 @@ private:
     static constexpr int MIN_NEGATIVE_SPACING = -100;
     static constexpr int MAX_NEGATIVE_SPACING = -700;
 
+    typedef std::vector<Sprite> SpritesList;
+    SpritesList sprites;
     std::vector<Texture2D> textures;
 
     Vector2 getRandomPosition();
@@ -19,9 +21,16 @@ private:
     Texture &getRandomTexture();
 
 public:
-    std::vector<Sprite> sprites;
-
     SpriteManager();
+
+    typedef SpritesList::iterator iterator;
+    typedef SpritesList::const_iterator const_iterator;
+
+    iterator begin() { return sprites.begin(); }
+
+    iterator end() { return sprites.end(); }
+
+    Sprite &operator[](int index);
 
     void respawnRandomWithRandomSprite(Sprite &sprite);
 

@@ -22,3 +22,10 @@ Vector2 SpriteManager::getRandomPosition() {
 void SpriteManager::addSprite() {
     sprites.emplace_back(getRandomPosition(), getRandomTexture());
 }
+
+Sprite &SpriteManager::operator[](int index) {
+    if (index >= sprites.size()) {
+        exit(0);                // TODO: Do proper Exception handling here...
+    }
+    return sprites[index];
+}

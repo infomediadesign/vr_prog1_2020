@@ -10,7 +10,7 @@ SceneController::SceneController(SpriteManager &spriteManager, int initialSprite
 
 void SceneController::moveSprites() {
     int screenheight = GetScreenHeight();
-    for (auto &sprite : spriteManager.sprites) {
+    for (auto &sprite : spriteManager) {
         if (sprite.pos.y > (float) screenheight)
             spriteManager.respawnRandomWithRandomSprite(sprite);
         else
@@ -19,7 +19,7 @@ void SceneController::moveSprites() {
 }
 
 void SceneController::drawScene() {
-    for (const auto &sprite : spriteManager.sprites)
+    for (const auto &sprite : spriteManager)
         DrawTextureV(sprite.texture, sprite.pos, WHITE);
 }
 
@@ -33,7 +33,7 @@ void SceneController::increaseDifficulty() {
 }
 
 void SceneController::checkHits() {
-    for (auto &sprite : spriteManager.sprites) {
+    for (auto &sprite : spriteManager) {
         Rectangle spriteBounds = {(float) sprite.pos.x,
                                   (float) sprite.pos.y,
                                   (float) sprite.texture.width,
