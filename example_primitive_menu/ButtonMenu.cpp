@@ -6,9 +6,8 @@
 
 ButtonMenu::ButtonMenu() = default;
 
-ButtonMenu::ButtonMenu(ButtonList buttonList) {
-    //this->buttonList = std::move(buttonList);
-    this->buttonList = buttonList;
+ButtonMenu::ButtonMenu(ButtonList&& buttonList) {
+    this->buttonList = std::move(buttonList);
 }
 
 Button &ButtonMenu::operator[](int index) {
@@ -40,23 +39,23 @@ void ButtonMenu::draw() {
     }
 }
 
-void ButtonMenu::alignCenter() {
-    float offsetY = (float) GetScreenHeight() / 2 - calcMenuHeight() / 2;
+void ButtonMenu::alignCenter(float margin) {
+    float offsetY = (float) GetScreenHeight() / 2 - calcMenuHeight(margin) / 2;
     for (auto &button : buttonList) {
         button.pos.x = (float) GetScreenWidth() / 2 - (float) button.normal.width / 2;
         button.pos.y = offsetY;
-        offsetY += BUTTON_Y_MARGIN;
+        offsetY += margin;
 
         if(button.buttonState == ButtonState::hover)
             activeButton = &button;
     }
 }
 
-float ButtonMenu::calcMenuHeight() {
+float ButtonMenu::calcMenuHeight(float margin) {
     float height = 0.0;
     for (const auto &button : buttonList) {
         height += (float) button.normal.height;
     }
-    height += ((float) buttonList.size() - 1) * BUTTON_Y_MARGIN;
+    height += ((float) buttonList.size() - 1) * margin;
     return height;
 }
