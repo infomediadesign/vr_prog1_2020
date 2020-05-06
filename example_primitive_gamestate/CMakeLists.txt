@@ -41,6 +41,6 @@ endif()
 
 # This is the main part:
 
-add_executable(${PROJECT_NAME} BaseGameState.h MenuState.h MenuState.cpp main.cpp PlayState.cpp PlayState.h game.h)
+add_executable(${PROJECT_NAME} BaseGameState.h MenuState.h MenuState.cpp main.cpp PlayState.cpp PlayState.h game.h )
 #set(raylib_VERBOSE 1)
 target_link_libraries(${PROJECT_NAME} raylib)
