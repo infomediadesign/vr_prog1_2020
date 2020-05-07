@@ -6,8 +6,6 @@
 
 class Panel {
 private:
-    Button* activeButton = nullptr;
-
     float calcMenuHeight(float margin);
 
 public:

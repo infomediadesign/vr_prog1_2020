@@ -21,7 +21,6 @@ MenuState::~MenuState() {
 
 void MenuState::handleEvents() {
     menu->handleEvents();
-    if (IsKeyDown(KEY_ENTER)) currentState = playState;
 }
 
 void MenuState::updateEntities() {
