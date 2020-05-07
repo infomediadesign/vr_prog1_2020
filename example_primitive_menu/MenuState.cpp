@@ -9,8 +9,10 @@
 #include "MainMenu.h"
 
 MenuState::MenuState() {
-    menu = new ButtonMenu(BUTTONLIST_MAINMENU);
+    menu = new Panel(BUTTONLIST_MAINMENU);
     menu->alignCenter(BUTTON_Y_MARGIN);
+
+    menu->buttonList[0].eventHandler = []() { currentState = playState; };
 }
 
 MenuState::~MenuState() {

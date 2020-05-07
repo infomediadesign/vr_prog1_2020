@@ -4,21 +4,21 @@
 
 #include "Button.h"
 
-class ButtonMenu {
+class Panel {
 private:
-    typedef std::vector<Button> ButtonList;
-    ButtonList buttonList;
-
     Button* activeButton = nullptr;
 
     float calcMenuHeight(float margin);
 
 public:
+    typedef std::vector<Button> ButtonList;
+    ButtonList buttonList;
+
     typedef ButtonList::iterator iterator;
     typedef ButtonList::const_iterator const_iterator;
 
-    ButtonMenu();
-    explicit ButtonMenu(ButtonList&& buttonList);
+    Panel();
+    explicit Panel(ButtonList&& buttonList);
 
     iterator begin() { return buttonList.begin(); }
 

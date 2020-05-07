@@ -1,7 +1,7 @@
 #pragma once
 
 #include "BaseGameState.h"
-#include "ButtonMenu.h"
+#include "Panel.h"
 
 constexpr float BUTTON_Y_MARGIN = 100.0;
 
@@ -18,5 +18,5 @@ public:
     void draw() override;
 
 private:
-    ButtonMenu* menu;
+    Panel* menu;
 };

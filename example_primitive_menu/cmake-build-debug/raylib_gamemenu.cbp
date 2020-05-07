@@ -312,12 +312,6 @@
 		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/Button.h">
 			<Option target="raylib_gamemenu"/>
 		</Unit>
-		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/ButtonMenu.cpp">
-			<Option target="raylib_gamemenu"/>
-		</Unit>
-		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/ButtonMenu.h">
-			<Option target="raylib_gamemenu"/>
-		</Unit>
 		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/MainMenu.h">
 			<Option target="raylib_gamemenu"/>
 		</Unit>
@@ -325,6 +319,12 @@
 			<Option target="raylib_gamemenu"/>
 		</Unit>
 		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/MenuState.h">
+			<Option target="raylib_gamemenu"/>
+		</Unit>
+		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/Panel.cpp">
+			<Option target="raylib_gamemenu"/>
+		</Unit>
+		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/Panel.h">
 			<Option target="raylib_gamemenu"/>
 		</Unit>
 		<Unit filename="/Users/chris/Desktop/Prog1/example_primitive_menu/PlayState.cpp">

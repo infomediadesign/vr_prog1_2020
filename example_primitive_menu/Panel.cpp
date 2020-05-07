@@ -1,23 +1,24 @@
 #include "raylib.h"
 
-#include "ButtonMenu.h"
+#include "Panel.h"
 
 #include <utility>
+#include <iostream>
 
-ButtonMenu::ButtonMenu() = default;
+Panel::Panel() = default;
 
-ButtonMenu::ButtonMenu(ButtonList&& buttonList) {
+Panel::Panel(ButtonList&& buttonList) {
     this->buttonList = std::move(buttonList);
 }
 
-Button &ButtonMenu::operator[](int index) {
+Button &Panel::operator[](int index) {
     if (index >= buttonList.size()) {
         exit(0);                                            // TODO: Do proper Exception handling here...
     }
     return buttonList[index];
 }
 
-void ButtonMenu::handleEvents() {
+void Panel::handleEvents() {
     for (auto &button : buttonList) {
         Rectangle bounds = {(float) button.pos.x,
                             (float) button.pos.y,
@@ -26,11 +27,13 @@ void ButtonMenu::handleEvents() {
 
         if (CheckCollisionPointRec(GetMousePosition(), bounds)) {
             activeButton = &button;
+            if(IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
+                button.eventHandler();
         }
     }
 }
 
-void ButtonMenu::draw() {
+void Panel::draw() {
     for (const auto &button : buttonList) {
         if (&button == activeButton)
             DrawTextureV(button.hover, button.pos, WHITE);
@@ -39,7 +42,7 @@ void ButtonMenu::draw() {
     }
 }
 
-void ButtonMenu::alignCenter(float margin) {
+void Panel::alignCenter(float margin) {
     float offsetY = (float) GetScreenHeight() / 2 - calcMenuHeight(margin) / 2;
     for (auto &button : buttonList) {
         button.pos.x = (float) GetScreenWidth() / 2 - (float) button.normal.width / 2;
@@ -51,7 +54,7 @@ void ButtonMenu::alignCenter(float margin) {
     }
 }
 
-float ButtonMenu::calcMenuHeight(float margin) {
+float Panel::calcMenuHeight(float margin) {
     float height = 0.0;
     for (const auto &button : buttonList) {
         height += (float) button.normal.height;
